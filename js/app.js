@@ -1,11 +1,11 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
-    this.x = -100;
-    this.y = 100;
-    this.speed = 30;
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -55,25 +55,25 @@ Player.prototype.handleInput = function(code) {
         case "up":
         if(this.y > 0){
         this.y-= 75;
-        };
+        }
         break;
 
         case "down":
         if(this.y < 350){ 
-        this.y = this.y + 80;}; 
+        this.y = this.y + 80}; 
         break;
 
         case "left":
         if(this.x > 0){
         this.x = this.x - 100;
-        };
+        }
         break;
 
         case "right":
         if(this.x < 400){
-        this.x += 100; };
+        this.x += 100};
         break;
-    };
+    }
 };
 
 // Now instantiate your objects.
@@ -88,15 +88,14 @@ Player.prototype.startOver = function() {
 
 Player.prototype.checkCollisions = function() {
    for (var i = 0; i < allEnemies.length; i++) {
-    if (allEnemies[i].x + 40 > this.x && this.x + 40 > allEnemies[i].x
-      && allEnemies[i].y + 50 > this.y && this.y + 50 > allEnemies[i].y) {
+    if (allEnemies[i].x + 40 > this.x && this.x + 40 > allEnemies[i].x && allEnemies[i].y + 50 > this.y && this.y + 50 > allEnemies[i].y) {
         player.startOver();
         }
     }    
 };
 
-var enemy0= new Enemy(100, 220, 30);
-var enemy1= new Enemy(100, 120, 25);
+var enemy0= new Enemy(100, 220, 60);
+var enemy1= new Enemy(100, 120, 75);
 var enemy2= new Enemy(100, 50, 40);
 var enemy3= new Enemy(100, 75, 130);
 
